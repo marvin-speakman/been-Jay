@@ -1,0 +1,23 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+the {body} of the default.hbs template, which contains our header/footer. }}
+{{> header-nav}}
+
+{{#post}}
+<section class="ribbon l-box is-center">
+	<span>&nbsp;</span>
+</section>
+
+<main class="content-wrapper page">
+	<section class="pure-g-r">
+		<div class="pure-u-1 l-content">
+
+			<h1>{{{title}}}</h1>
+			{{content}}
+
+		</div>
+	</section>
+	{{/post}}
+	{{> footer-site}}
+</main>

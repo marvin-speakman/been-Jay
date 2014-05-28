@@ -1,0 +1,125 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+the {body} of the default.hbs template, which contains our header/footer. }}
+{{> header-nav}}
+<section class="banner-container banner-home is-center">
+
+	<div class="banner">
+		<h1 class="banner-head is-center"><img class="blog-logo pure-img-responsive"  style="max-width: 500px" src="{{@blog.logo}}" alt="{{@blog.title}} logo"/><br>{{@blog.title}}</h1>
+		<p class="banner-subhead">
+			
+		</p>
+		{{!-- <p>
+			<a href="#blog" class="pure-button pure-button-primary scroll-to-blog">My Experiences<br><i class="fa fa-coffee"></i></a>
+		</p> --}}
+	</div>
+
+</section>
+
+<main class="content-wrapper">
+	<section class="content">
+		<h2 class="content-head is-center">I build things for the internet</h2>
+	</section>
+
+	<section class="ribbon l-box-lrg pure-g" id="about">
+		
+		<div class="pure-u-1 pure-u-med-1-2 pure-u-lrg-3-5">
+
+			<h2 class="content-head content-head-ribbon">I’ve been involved in the creation of websites and web applications for over 15 years.</h2>
+
+					<p>I started my career as a Web Designer before quickly moving into Front-End Development. Prior to joining Havas LYNX, I worked at McCann Erickson for 3 years (including 1 year setting up their central Manchester ‘Metro’ office). </p>
+
+					<p>I joined Havas LYNX as a Senior Front-End Developer and for the last 3 years I have been running a team of 16 Front-End Developers specialising in HTML5, CSS3 and most of all JavaScript, utilising modern build processes such as node, sass, grunt, yeoman, assemble and angular.</p>
+
+					<p>I am always looking for emerging technologies to improve the development process with a view to perfecting the full stack front end development workflow.</p>
+		</div>
+
+		<div class="l-box-lrg is-center pure-u-1 pure-u-med-1-2 pure-u-lrg-2-5">
+			<img class="pure-img-responsive img-grayscale img-round" alt="Jay" width="300" src="assets/img/profile1.jpg"><br>
+		</div>
+	</section>
+
+{{!-- 	<section class="content">
+		<h2 class="content-head is-center">Sign up for my newsletter<br>receive updates and first glimpses into living a spectacular life.</h2>
+
+		<div class="pure-g">
+			<div class="l-box-lrg pure-u-1 pure-u-med-2-5">
+				<form class="pure-form pure-form-stacked">
+					<fieldset>
+
+						<label for="email">Your Name</label>
+						<input id="email" type="text" placeholder="Your Name">
+
+
+						<label for="email">Your Email</label>
+						<input id="email" type="email" placeholder="Your Email">
+
+						<button type="button" class="pure-button">Sign Up</button>
+					</fieldset>
+				</form>
+			</div>
+
+			<div class="l-box-lrg pure-u-1 pure-u-med-3-5">
+				<h4>Sign Up</h4>
+				<p>
+					This is an example of a sign up form that you could use on your site to capture contact information from people who are interested in what you have to say. Perhaps you want to use something like <a href="http://mailchimp.com/features/custom-forms/" rel="nofollow">MailChimp</a> for your custom signup form and building your reader list?
+				</p>
+
+				<h4>More Information</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua.
+				</p>
+			</div>
+		</div>
+
+	</section> --}}
+
+	<section class="content-head is-center" id="blog">
+		<h2>Recent Posts</h2>
+	</section>
+
+	{{! Each post will be output using this markup }}
+	{{#foreach posts}}
+	<section class="pure-g-r" >
+		<div class="pure-u-1">
+
+			<article class="{{post_class}} l-content">
+
+				<header class="post-header">
+					<h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
+					<div class="post-meta">
+						<time datetime="{{date format='YYYY-MM-DD'}}">
+							<span class="line">Posted on <i class="fa fa-calendar-o"></i><span class="post-date">{{date format="DD MMM YYYY"}}</span></span>
+						</time>
+					</div>
+				</header>
+
+				<div class="post-excerpt pure-u-1">
+					{{excerpt words ="54"}}&hellip;
+				</div>
+
+				{{> post-button}}
+				{{> post-tags}}
+
+			</article>
+
+		</div>
+	</section>
+
+	{{/foreach}}
+</section>
+{{!! After all the posts, we have the previous/next pagination links }}
+<section class="pure-g-r">
+	<div class="pure-u-1 l-content">
+		{{pagination}}
+	</div>
+</section>
+
+{{> footer-site}}
+</main>
+
+
+
+
