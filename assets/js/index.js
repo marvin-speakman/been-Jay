@@ -10,8 +10,8 @@
 
         // Home page slideshow
         $(".banner-home").backstretch([
-            "/content/images/header.jpg",
-            "/content/images/music.jpg",  
+            "/assets/img/header.jpg",
+            "/assets/img/music.jpg",  
             ], {duration: 6000, fade: 750});       
 
         // Posts featured image, determine if post has an image with the alt tag of "big-post-image"
